@@ -1,0 +1,110 @@
+plugins {
+    id 'com.android.application'
+    id 'org.lsposed.lsparanoid'
+}
+
+apply from: '../signing.gradle'
+
+android {
+    
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    namespace rootProject.ext.LoaderPkg
+    
+    lint {
+        baseline = file("lint-baseline.xml")
+    }
+    
+    defaultConfig {
+        applicationId rootProject.ext.LoaderPkg
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        vectorDrawables.useSupportLibrary = true
+        consumerProguardFiles "proguard-rules.pro"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        
+        ndk {
+            abiFilters 'arm64-v8a'
+        }
+        
+        resConfigs "en", "hi"
+    }
+    
+    buildTypes {
+        debug {
+            minifyEnabled false
+            debuggable false
+            jniDebuggable false
+            signingConfig signingConfigs.debug
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            debuggable false
+            jniDebuggable false
+            minifyEnabled true
+            shrinkResources true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    ndkVersion rootProject.ext.ndkVersion
+    
+    externalNativeBuild {
+        ndkBuild {
+            path "src/main/jni/Android.mk"
+        }
+    }
+    
+    buildFeatures {
+        viewBinding true
+    }
+    
+    bundle {
+        language {
+            enableSplit = true
+        }
+        density {
+            enableSplit = true
+        }
+        abi {
+            enableSplit = true
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
+    
+    // Existing Dependencies
+    implementation 'com.github.nukc:StateView:2.1.1'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'com.github.tiann:FreeReflection:3.2.2'
+    implementation "com.github.CodingGay.BlackReflection:core:1.1.4"
+    annotationProcessor "com.github.CodingGay.BlackReflection:compiler:1.1.4"
+    implementation 'org.jdeferred:jdeferred-android-aar:1.2.6'
+    implementation 'io.github.molihuan:pathselector:1.1.16'
+    implementation 'net.lingala.zip4j:zip4j:2.11.5'
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+    implementation 'com.squareup.okio:okio:3.9.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.github.bumptech.glide:glide:4.15.1'
+    
+    // LOTTIE ANIMATION
+    implementation 'com.airbnb.android:lottie:6.1.0'
+    
+    // ✅ FIX 1: SLF4J binding for Android (solves missing StaticLoggerBinder)
+    implementation 'org.slf4j:slf4j-android:1.7.36'
+    
+    // ✅ FIX 2: Gson (required by pathselector library)
+    implementation 'com.google.code.gson:gson:2.10.1'
+}

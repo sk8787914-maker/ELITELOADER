@@ -1,0 +1,10 @@
+include ':app'
+
+include ':elite-sdk'
+
+include ':Bcore:black-fake'
+include ':Bcore:black-hook'
+
+include ':android-mirror'
+
+rootProject.name = "zoro"
