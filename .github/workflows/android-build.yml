@@ -31,7 +31,7 @@ jobs:
           sdkmanager \
             "platform-tools" \
             "platforms;android-34" \
-            "build-tools;34.0.4" \
+            "build-tools;34.0.0" \
             "ndk;24.0.8215888"
 
       - name: Create CI signing key
