@@ -16,10 +16,13 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.Settings;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -140,8 +143,21 @@ public class LoginActivity extends AppCompatActivity {
 
     private void initDesign() {
         Prefs prefs = new Prefs(this);
-        TextView textUsername = findViewById(R.id.userkey);
+        EditText textUsername = findViewById(R.id.userkey);
         textUsername.setText(prefs.getSt("USER", ""));
+
+        ImageView showKey = findViewById(R.id.showKey);
+        showKey.setOnClickListener(view -> {
+            boolean hidden = textUsername.getTransformationMethod() instanceof PasswordTransformationMethod;
+            if (hidden) {
+                textUsername.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                showKey.setImageResource(R.drawable.ic_visibility_on);
+            } else {
+                textUsername.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                showKey.setImageResource(R.drawable.ic_visibility_off);
+            }
+            textUsername.setSelection(textUsername.length());
+        });
 
         btnSignIn = findViewById(R.id.login);
         btnSignIn.setOnClickListener(v -> {
