@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.zoro.loader.R;
 import com.zoro.loader.libhelper.FileCopyTask;
+import com.zoro.loader.utils.ThemeShade;
 import com.elite.EliteInstaller;
 import com.airbnb.lottie.LottieAnimationView;
 import com.airbnb.lottie.LottieDrawable;
@@ -46,6 +47,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ThemeShade.apply(this, R.id.mainRoot);
 
         // Initialize views
         backgroundAnimation = findViewById(R.id.backgroundAnimation);

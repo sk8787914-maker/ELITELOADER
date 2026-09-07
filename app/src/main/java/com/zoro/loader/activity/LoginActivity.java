@@ -34,6 +34,7 @@ import com.zoro.loader.R;
 import com.zoro.loader.libhelper.DownloadZip;
 import com.zoro.loader.utils.FLog;
 import com.zoro.loader.utils.Prefs;
+import com.zoro.loader.utils.ThemeShade;
 
 import org.lsposed.lsparanoid.Obfuscate;
 
@@ -66,6 +67,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        ThemeShade.apply(this, R.id.loginRoot);
 
         // --- LOTTIE ANIMATION BACKGROUND ---
         backgroundAnimation = findViewById(R.id.backgroundAnimation);
