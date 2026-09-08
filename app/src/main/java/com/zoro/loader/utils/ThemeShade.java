@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.animation.ObjectAnimator;
+import android.view.animation.LinearInterpolator;
+import com.zoro.loader.R;
 
 import java.security.SecureRandom;
 
@@ -36,11 +39,23 @@ public final class ThemeShade {
         recolor(root, palette);
     }
 
+    public static void spin(View badge) {
+        if (badge == null) return;
+        ObjectAnimator rotation = ObjectAnimator.ofFloat(badge, View.ROTATION, 0f, 360f);
+        rotation.setDuration(9000L);
+        rotation.setRepeatCount(ObjectAnimator.INFINITE);
+        rotation.setInterpolator(new LinearInterpolator());
+        rotation.start();
+    }
+
     private static void recolor(View view, Palette palette) {
         if (view instanceof Button) {
+            boolean whiteAction = view.getId() == R.id.login || view.getId() == R.id.starthack;
             GradientDrawable button = new GradientDrawable(
                     GradientDrawable.Orientation.LEFT_RIGHT,
-                    new int[] { Color.parseColor(palette.accent), Color.parseColor(palette.accentDark) });
+                    whiteAction
+                            ? new int[] { Color.parseColor("#FFFFFF"), Color.parseColor("#DDE5E4") }
+                            : new int[] { Color.parseColor(palette.accent), Color.parseColor(palette.accentDark) });
             button.setCornerRadius(14f);
             view.setBackground(button);
         } else if (view instanceof EditText) {

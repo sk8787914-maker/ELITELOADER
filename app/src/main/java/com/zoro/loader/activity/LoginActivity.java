@@ -35,6 +35,7 @@ import com.zoro.loader.libhelper.DownloadZip;
 import com.zoro.loader.utils.FLog;
 import com.zoro.loader.utils.Prefs;
 import com.zoro.loader.utils.ThemeShade;
+import com.zoro.loader.utils.TelegramLinks;
 
 import org.lsposed.lsparanoid.Obfuscate;
 
@@ -68,6 +69,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ThemeShade.apply(this, R.id.loginRoot);
+        ThemeShade.spin(findViewById(R.id.teamBadge));
+        findViewById(R.id.ownerLink).setOnClickListener(v -> TelegramLinks.openOwner(this));
+        findViewById(R.id.channelLink).setOnClickListener(v -> TelegramLinks.openChannel(this));
 
         // --- LOTTIE ANIMATION BACKGROUND ---
         backgroundAnimation = findViewById(R.id.backgroundAnimation);

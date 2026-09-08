@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.zoro.loader.R;
 import com.zoro.loader.libhelper.FileCopyTask;
 import com.zoro.loader.utils.ThemeShade;
+import com.zoro.loader.utils.TelegramLinks;
 import com.elite.EliteInstaller;
 import com.airbnb.lottie.LottieAnimationView;
 import com.airbnb.lottie.LottieDrawable;
@@ -48,6 +49,9 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ThemeShade.apply(this, R.id.mainRoot);
+        ThemeShade.spin(findViewById(R.id.teamBadge));
+        findViewById(R.id.ownerLink).setOnClickListener(v -> TelegramLinks.openOwner(this));
+        findViewById(R.id.channelLink).setOnClickListener(v -> TelegramLinks.openChannel(this));
 
         // Initialize views
         backgroundAnimation = findViewById(R.id.backgroundAnimation);
