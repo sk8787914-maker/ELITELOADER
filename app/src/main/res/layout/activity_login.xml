@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:padding="4dp">
-                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="ZORO LOADER" android:textColor="#F3F8F8" android:textSize="17sp" android:textStyle="bold" />
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="TEAM DARK" android:textColor="#F3F8F8" android:textSize="17sp" android:textStyle="bold" />
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="• SECURE ACCESS" android:textColor="#63D8E2" android:textSize="11sp" android:textStyle="bold" />
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="12dp" android:text="● ONLINE" android:textColor="#57E6A1" android:textSize="10sp" />
             </LinearLayout>
@@ -44,7 +44,7 @@
                 android:layout_width="match_parent" android:layout_height="220dp" android:layout_marginTop="14dp"
                 app:cardBackgroundColor="#160B1F24" app:cardCornerRadius="22dp" app:cardElevation="0dp">
                 <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/cyber_panel">
-                    <ImageView android:id="@+id/logoImage" android:layout_width="148dp" android:layout_height="148dp" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:layout_marginTop="8dp" android:contentDescription="Zoro Loader" android:scaleType="centerCrop" android:src="@drawable/zoro_badge" />
+                    <ImageView android:id="@+id/logoImage" android:layout_width="148dp" android:layout_height="148dp" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:layout_marginTop="8dp" android:contentDescription="Team Dark" android:scaleType="centerCrop" android:src="@drawable/team_dark_badge" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" android:layout_marginBottom="10dp" android:letterSpacing="0.18" android:text="Z O R O   L O A D E R" android:textColor="#21D8E8" android:textSize="20sp" android:textStyle="bold" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -71,8 +71,8 @@
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="API 24–36  •  ARM64" android:textColor="#5D9AA0" android:textSize="10sp" />
                 </LinearLayout>
                 <TextView android:id="@+id/teamBadge" android:layout_width="86dp" android:layout_height="86dp" android:layout_gravity="center_horizontal" android:layout_marginTop="20dp" android:background="@drawable/cyber_input" android:gravity="center" android:text="TEAM\nDARK" android:textColor="#F2D8FF" android:textSize="11sp" android:textStyle="bold" />
-                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:gravity="center" android:text="TEAM DARK DEVELOPER" android:textColor="#F4FFFF" android:textSize="18sp" android:textStyle="bold" />
-                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:gravity="center" android:text="PARALLAX   •   BABA TILLU   •   RAVI\nGON   •   HARSHU   •   DEVELOPER\nSHEEL CODER   •   PRIME   •   SHOOT360" android:textColor="#67D5DE" android:textSize="11sp" android:lineSpacingExtra="7dp" />
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:gravity="center" android:text="TEAM DARK" android:textColor="#F4FFFF" android:textSize="18sp" android:textStyle="bold" />
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:gravity="center" android:text="PARALLAX   •   BABA TILLU   •   RAVI\nGON   •     DEVELOPER\nSHEEL CODER   •   PRIME   •   SHOOT360" android:textColor="#67D5DE" android:textSize="11sp" android:lineSpacingExtra="7dp" />
             </LinearLayout>
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:gravity="center" android:text="SERVER ACCESS GATEWAY  •  v4.5.0" android:textColor="#52777C" android:textSize="10sp" />
         </LinearLayout>
