@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.10"
+        android:visibility="gone"
         android:scaleType="centerCrop"
         app:lottie_rawRes="@raw/zoro"
         app:lottie_autoPlay="true"
@@ -44,7 +45,7 @@
                 android:layout_width="match_parent" android:layout_height="220dp" android:layout_marginTop="14dp"
                 app:cardBackgroundColor="#160B1F24" app:cardCornerRadius="22dp" app:cardElevation="0dp">
                 <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/cyber_panel">
-                    <ImageView android:id="@+id/logoImage" android:layout_width="148dp" android:layout_height="148dp" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:layout_marginTop="8dp" android:contentDescription="Team Dark" android:scaleType="centerCrop" android:src="@drawable/team_dark_badge" />
+                    <ImageView android:id="@+id/logoImage" android:layout_width="148dp" android:layout_height="148dp" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:layout_marginTop="8dp" android:contentDescription="Team Dark" android:scaleType="centerCrop" android:src="@drawable/team_dark_logo" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" android:layout_marginBottom="10dp" android:letterSpacing="0.18" android:text="Z O R O   L O A D E R" android:textColor="#21D8E8" android:textSize="20sp" android:textStyle="bold" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
