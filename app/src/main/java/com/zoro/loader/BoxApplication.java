@@ -8,14 +8,14 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.zoro.loader.utils.FLog;
-import com.elite.EliteInstaller;
-import com.elite.app.configuration.ClientConfiguration;
+import top.niunaijun.blackbox.BlackBoxCore;
+import top.niunaijun.blackbox.app.configuration.ClientConfiguration;
 import net_62v.external.MetaActivationManager;
 
 public class BoxApplication extends Application {
     public static BoxApplication gApp;
 
-    private native String BoxApp();
+    private static final String SDK_KEY = "TEAMDARKSDKKEY";
 
     public static BoxApplication get() {
         return gApp;
@@ -33,10 +33,9 @@ public class BoxApplication extends Application {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         try {
-            EliteInstaller.get().doAttachBaseContext(base, new ClientConfiguration() {
+            BlackBoxCore.get().doAttachBaseContext(base, new ClientConfiguration() {
                 public String getHostPackageName() { return base.getPackageName(); }
-                public boolean isHideRoot() { return true; }
-                public boolean isHideXposed() { return true; }
+                public boolean setHideRoot() { return true; }
                 public boolean isEnableDaemonService() { return true; }
             });
         } catch (Exception e) {
@@ -49,14 +48,14 @@ public class BoxApplication extends Application {
         super.onCreate();
         gApp = this;
         try {
-            EliteInstaller.get().doCreate();
-            
-            String key = BoxApp(); 
+            BlackBoxCore.get().doCreate();
+
+            String key = SDK_KEY;
             Log.d("LICENSE_DEBUG", "KEY FROM JNI: " + key);
-            
+
             if (key != null && !key.isEmpty()) {
                 MetaActivationManager.activateSdk(key);
-                
+
                 // ✅ Poll for up to 10 seconds (20 attempts * 500ms)
                 new Handler(Looper.getMainLooper()).post(new Runnable() {
                     int attempts = 0;

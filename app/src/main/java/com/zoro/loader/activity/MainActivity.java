@@ -13,7 +13,7 @@ import com.zoro.loader.R;
 import com.zoro.loader.libhelper.FileCopyTask;
 import com.zoro.loader.utils.ThemeShade;
 import com.zoro.loader.utils.TelegramLinks;
-import com.elite.EliteInstaller;
+import top.niunaijun.blackbox.BlackBoxCore;
 import com.airbnb.lottie.LottieAnimationView;
 import com.airbnb.lottie.LottieDrawable;
 import net_62v.external.MetaActivationManager;
@@ -38,7 +38,7 @@ public class MainActivity extends Activity {
     private static final String BGMI_PACKAGE = "com.pubg.imobile";
     private static final int USER_ID = 0;
 
-    private EliteInstaller eliteInstaller;
+    private BlackBoxCore eliteInstaller;
     private FileCopyTask fileCopyTask;
     private LottieAnimationView backgroundAnimation;
     private Button starthack, stophack;
@@ -66,7 +66,7 @@ public class MainActivity extends Activity {
         }
 
         // Initialize helpers
-        eliteInstaller = EliteInstaller.get();
+        eliteInstaller = BlackBoxCore.get();
         fileCopyTask = new FileCopyTask(this);
 
         // Check activation status

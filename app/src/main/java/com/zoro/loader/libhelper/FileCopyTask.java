@@ -10,7 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import com.elite.core.env.BEnvironment;  // ✅ Elite SDK ka BEnvironment
+import top.niunaijun.blackbox.core.env.BEnvironment;  // ✅ Elite SDK ka BEnvironment
 
 public class FileCopyTask {
 
